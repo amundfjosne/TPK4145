@@ -62,12 +62,32 @@ bool UDP_bind_socket (int *socket, struct sockaddr_in* socket_struct)
 
 bool UDP_recieve_from_blocking (int *socket, char buffer[], int buffer_length, struct sockaddr_in* socket_struct)
 {
-    return false;
+    bool received = false;
+    socklen_t slen = sizeof(*socket_struct);
+    if(recvfrom(*socket, buffer, strlen(buffer) , 0 , (struct sockaddr *) socket_struct, &slen) <0)
+    {
+        perror("Error with recvfrom");
+    }
+    else
+    {
+        received = true;
+    }
+    return received;
 }
 
 bool UDP_send_to_blocking (int *socket, char buffer[], int buffer_length, struct sockaddr_in* socket_struct)
 {
-    return false;
+    bool sent = false;
+
+    if(sendto(*socket, buffer, strlen(buffer) , 0 , (struct sockaddr *) socket_struct, sizeof(*socket_struct)))
+    {
+        perror("Send failed");
+    }
+    else
+    {
+        sent = true;
+    }
+    return sent;
 }
 
 
