@@ -37,7 +37,7 @@ bool UDP_update_socket_struct (struct sockaddr_in *socket_struct, int port, char
     }
     else
     {
-        socket_updated=true;
+        socket_updated = true;
     }
 
     return socket_updated;
@@ -54,7 +54,7 @@ bool UDP_bind_socket (int *socket, struct sockaddr_in* socket_struct)
     }
     else
     {
-        bound=true;
+        bound = true;
     }
     return bound;
 }
