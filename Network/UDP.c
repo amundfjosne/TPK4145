@@ -23,9 +23,25 @@ bool UDP_create_socket (int *new_socket)
 }
 
 
-bool UDP_update_socket_struct (struct sockaddr_in* socket_struct, int port, int address)
+bool UDP_update_socket_struct (struct sockaddr_in* socket_struct, int port, char address)
 {
-    return false;
+    bool socket_updated = false;
+    // zero out the structure
+    memset((char *) &socket_struct, 0, sizeof(socket_struct));
+
+    socket_struct->sin_family = AF_INET;
+    socket_struct->sin_port = htons(20012);
+    if (inet_aton(&address, &socket_struct->sin_addr) ==0 )
+    {
+        perror("Error with inet_aton");
+        socket_updated=false;
+    }
+    else
+    {
+        socket_updated=true;        
+    }
+
+    return socket_updated;
 }
 
 
