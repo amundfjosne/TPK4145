@@ -39,7 +39,10 @@ bool UDP_update_socket_struct (struct sockaddr_in *socket_struct, int port, char
     {
         socket_updated = true;
     }
-
+/*    printf("Port: %d \n",port);
+    printf("Port: %d \n",socket_struct->sin_port);
+    printf("Address: %s \n", address);
+    printf("IP address is: %s\n", inet_ntoa(socket_struct->sin_addr));*/
     return socket_updated;
 }
 
