@@ -60,12 +60,12 @@ bool UDP_bind_socket (int *socket, struct sockaddr_in* socket_struct)
 }
 
 
-bool UDP_recieve_from (int *socket, char buffer[], int buffer_length, struct sockaddr_in* socket_struct /*, slen ?*/)
+bool UDP_recieve_from_blocking (int *socket, char buffer[], int buffer_length, struct sockaddr_in* socket_struct)
 {
     return false;
 }
 
-bool UDP_send_to (int *socket, char buffer[], int buffer_length, struct sockaddr_in* socket_struct /*, slen ?*/)
+bool UDP_send_to_blocking (int *socket, char buffer[], int buffer_length, struct sockaddr_in* socket_struct)
 {
     return false;
 }
