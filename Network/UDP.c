@@ -29,9 +29,8 @@ bool UDP_update_socket_struct (struct sockaddr_in *socket_struct, int port, char
     // zero out the structure
     memset((char *) &(*socket_struct), 0, sizeof(socket_struct));
     socket_struct->sin_family = AF_INET;
-
     socket_struct->sin_port = htons(port);
-    if (inet_aton(address, &(*socket_struct).sin_addr) <0 )
+    if (inet_aton(address, &(socket_struct->sin_addr)) <0 )
     {
         perror("Error with inet_aton");
     }
