@@ -51,7 +51,7 @@ bool UDP_bind_socket (int *socket, struct sockaddr_in* socket_struct)
 {
 
     bool bound = false;
-    if(bind(*socket , (struct sockaddr*)socket_struct, sizeof(*socket_struct)) < 0)
+    if(bind(*socket, (struct sockaddr*) socket_struct, sizeof(*socket_struct)) < 0)
     {
         perror("Bind failed");
     }
